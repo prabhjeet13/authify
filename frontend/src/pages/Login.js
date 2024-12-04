@@ -5,7 +5,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-// import { setToken, setUser } from '../slices/profileSlice';
+import { setToken, setUser } from '../slices/profileSlice';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -66,7 +66,7 @@ const Login = () => {
       className="mx-auto max-w-[1260px] md:flex md:flex-row md:mt-2 justify-evenly items-center md:gap-3 flex flex-col-reverse sm:gap-52 sm:mt-36 mt-10 bg-gradient-to-br from-blue-100 via-white to-purple-200 md:h-[100vh]"
     >
       <div className="md:w-[40%] flex flex-col gap-2 w-11/12">
-        <p className="text-xl font-semibold font-mono uppercase">Welcome again to BIBLIOTECH !!!</p>
+        <p className="text-xl font-semibold font-mono uppercase">Welcome again to AUTHIFY !!!</p>
         <form className="flex flex-col gap-5 font-semibold" onSubmit={onSubmitHandler}>
           <div className="flex flex-col gap-1">
             <label htmlFor="email">Email</label>
@@ -106,9 +106,9 @@ const Login = () => {
           <button
             type="Submit"
             className="bg-yellow-400 text-black font-bold font-mono py-2 rounded-md transition-all duration-200 hover:bg-yellow-500 hover:scale-95"
-            disabled={loading}  // Disable the button when loading
+            disabled={loading}  
           >
-            {loading ? "Signing In..." : "Sign In"} {/* Show loading text */}
+            {loading ? "Signing In..." : "Sign In"} 
           </button>
         </form>
       </div>

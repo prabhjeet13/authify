@@ -10,13 +10,12 @@ const Dashboard = () => {
       {
         user && (
           <div className="max-w-4xl mx-auto p-8 rounded-lg shadow-xl bg-transparent">
-            {/* User Image Section (Static or Profile Image) */}
-            {/* User Information Section */}
             <div className="text-center mb-8">
               <h1 className="text-4xl font-extrabold text-white mb-4">Dashboard</h1>
 
               {/* User's Full Name */}
-              <h2 className="text-3xl font-bold text-white mb-2">{user.fullname}</h2>
+              <h2 className="text-3xl font-bold text-white mb-2">{user.firstname}</h2>
+              <h2 className="text-3xl font-bold text-white mb-2">{user.lastname}</h2>
 
               {/* User's Email */}
               <p className="text-lg text-white mb-4">{user.email}</p>
@@ -30,27 +29,18 @@ const Dashboard = () => {
             {/* Conditional Button for Admin */}
             {user.accountType === 'Admin' && (
               <div className="flex justify-center mt-8">
-                <Link to="/add-book">
+                <Link to="/add-user">
                   <button className="bg-blue-600 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-200">
-                    Add Book
+                    Add User
                   </button>
                 </Link>
               </div>
             )}
             {user.accountType === 'Admin' && (
               <div className="flex justify-center mt-8">
-                <Link to="/myaddbooks">
+                <Link to="/myaddusers">
                   <button className="bg-blue-600 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-200">
-                    My Add Books
-                  </button>
-                </Link>
-              </div>
-            )}
-            {user.accountType === 'Buyer' && (
-              <div className="flex justify-center mt-8">
-                <Link to="/mypurchasedbooks">
-                  <button className="bg-blue-600 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-200">
-                    My Purchased Books
+                    My Add Users
                   </button>
                 </Link>
               </div>

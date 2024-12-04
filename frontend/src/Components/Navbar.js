@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setToken, setUser } from '../slices/profileSlice';
 
-import { FaShoppingCart } from 'react-icons/fa'; // Cart icon from react-icons
-
 const Navbar = () => {
     const { user } = useSelector((state) => state.profile);
     const { token } = useSelector((state) => state.profile);
@@ -28,6 +26,14 @@ const Navbar = () => {
           AUTHIFY
         </p>
       </Link>
+
+      <ul className='flex flex-row gap-4'>
+          <Link to='/about'>
+            <li className='text-white bg-black shadow-md shadow-black px-5 py-2 duration-200 transition-all hover:scale-90 text-lg font-bold font-mono'>
+              employees
+            </li>
+          </Link>
+      </ul>
 
       {/* {token === null && ( */}
         <div className='flex flex-row gap-2'>
