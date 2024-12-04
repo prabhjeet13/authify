@@ -28,16 +28,7 @@ exports.add = async(req,res) => {
                 message : 'User is already registered',
              }); 
         }
-    
-        //verify password and confirm password
-        if(password !== confirmPassword)
-        {
-            return res.status(400).json({
-                success : false,
-                message : 'password and confirm-password does not match',
-             }); 
-        }
-    
+
         // create the user
         const userdetails = await User.create({
             firstname,
@@ -51,14 +42,14 @@ exports.add = async(req,res) => {
     
         return res.status(200).json({
             success : true,
-            message : 'registration successfull',
+            message : 'add successfull',
             userdetails,
         });
       }catch(error)
       {
         return res.status(500).json({
             success: false,
-            message : 'error at registration side'
+            message : 'error at adding side'
     
         })
       }
@@ -76,7 +67,6 @@ exports.edit = async(req,res) => {
              salary,
              userId,
          } = req.body;
-
     
          if(!firstname || !lastname || !email || !age || !salary || !role || !phoneNo || !userId)
          {   
@@ -127,13 +117,26 @@ exports.deleteUser = async(req,res) => {
               }); 
          }
     
+
+         // find first 
+        const existUser = await User.findOne({_id : userId});
+    
+        if(!existUser)
+        {
+            return res.status(401).json({
+                success : false,
+                message : 'User is not added',
+             }); 
+        }
+
+
+
          // delete the user
-         const deletedUser = await User.findByIdAndDelete(
-            {_id:userId});     
+         const deletedUser = await User.findByIdAndDelete({_id:userId});     
          return res.status(200).json({
              success : true,
              message : 'delete successfull',
-             deletedUserUser,
+             deletedUser,
          });
        }catch(error)
        {

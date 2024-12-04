@@ -82,7 +82,7 @@ exports.signin = async(req,res) => {
             });
         }
 
-        const existUser = await Admin.findOne({email : email}).populate("books").exec();
+        const existUser = await Admin.findOne({email : email});
 
 
         if(!existUser) {

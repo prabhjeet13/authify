@@ -13,17 +13,13 @@ const Dashboard = () => {
             <div className="text-center mb-8">
               <h1 className="text-4xl font-extrabold text-white mb-4">Dashboard</h1>
 
-              {/* User's Full Name */}
-              <h2 className="text-3xl font-bold text-white mb-2">{user.firstname}</h2>
-              <h2 className="text-3xl font-bold text-white mb-2">{user.lastname}</h2>
-
-              {/* User's Email */}
-              <p className="text-lg text-white mb-4">{user.email}</p>
-
-              {/* User's Account Type */}
-              <p className="text-lg font-semibold text-white mb-6">
-                Account Type: <span className="font-bold">{user.accountType}</span>
-              </p>
+              {/* User Details with Labels */}
+              <div className="text-left mb-4">
+                <p className="text-xl text-white mb-2"><span className="font-bold">First Name:</span> <span className="font-semibold">{user.firstname}</span></p>
+                <p className="text-xl text-white mb-2"><span className="font-bold">Last Name:</span> <span className="font-semibold">{user.lastname}</span></p>
+                <p className="text-xl text-white mb-2"><span className="font-bold">Email:</span> <span className="font-semibold">{user.email}</span></p>
+                <p className="text-xl text-white mb-2"><span className="font-bold">Account Type:</span> <span className="font-semibold">{user.accountType}</span></p>
+              </div>
             </div>
 
             {/* Conditional Button for Admin */}
