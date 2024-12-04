@@ -119,7 +119,7 @@ exports.edit = async(req,res) => {
 exports.deleteUser = async(req,res) => {
     try {
         const { userId } = req.body;
-         if(!!userId)
+         if(!userId)
          {   
              return res.status(404).json({
                  success : false,
@@ -127,19 +127,65 @@ exports.deleteUser = async(req,res) => {
               }); 
          }
     
-         // edit the user
+         // delete the user
          const deletedUser = await User.findByIdAndDelete(
             {_id:userId});     
          return res.status(200).json({
              success : true,
-             message : 'edit successfull',
+             message : 'delete successfull',
              deletedUserUser,
          });
        }catch(error)
        {
          return res.status(500).json({
              success: false,
-             message : 'error at editing side'
+             message : 'error at deleting side'
+     
+         })
+       }
+} 
+exports.getAllusers = async(req,res) => {
+    try {
+       
+         const users = await User.find({});     
+         return res.status(200).json({
+             success : true,
+             message : 'fetch successfull',
+             users,
+         });
+       }catch(error)
+       {
+         return res.status(500).json({
+             success: false,
+             message : 'error at fetching side'
+         })
+       }
+}
+
+exports.getUserById = async(req,res) => {
+    try {
+        const { userId } = req.body;
+         if(!userId)
+         {   
+             return res.status(404).json({
+                 success : false,
+                 message : 'enter your details',
+              }); 
+         }
+    
+         // fetch the user
+         const  userdetails = await User.findById(
+            {_id:userId});     
+         return res.status(200).json({
+             success : true,
+             message : 'fetch successfull',
+             userdetails,
+         });
+       }catch(error)
+       {
+         return res.status(500).json({
+             success: false,
+             message : 'fetching at deleting side'
      
          })
        }

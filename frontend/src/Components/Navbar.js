@@ -3,24 +3,24 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setToken, setUser } from '../slices/profileSlice';
+
 import { FaShoppingCart } from 'react-icons/fa'; // Cart icon from react-icons
 
 const Navbar = () => {
-//   const { user } = useSelector((state) => state.profile);
-//   const { token } = useSelector((state) => state.profile);
-//   const { totalItems } = useSelector((state) => state.cart);
-//   const navigate = useNavigate();
-//   const dispatch = useDispatch();
+    const { user } = useSelector((state) => state.profile);
+    const { token } = useSelector((state) => state.profile);
+  
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-//   const logoutHandler = () => {
-//     localStorage.clear();
-//     localStorage.removeItem('token');
-//     localStorage.removeItem('user');
-//     dispatch(setToken(null));
-//     dispatch(setUser(null));
-//     navigate('/');
-//   };
-  const token = null;
+  const logoutHandler = () => {
+    localStorage.clear();
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    dispatch(setToken(null));
+    dispatch(setUser(null));
+    navigate('/');
+  };
   return (
     <div className='bg-gradient-to-r from-purple-300 via-pink-200 to-orange-300 md:h-14 md:py-10 mx-auto w-11/12 max-w-[1260px] md:flex md:flex-row md:gap-32 md:items-center md:justify-evenly border-b-2 border-blue-950 flex flex-col items-center mt-2 gap-2 h-40 shadow-md shadow-gray-400'>
       <Link to='/'>
@@ -66,7 +66,6 @@ const Navbar = () => {
 
 export default Navbar;
 
-// import React from 'react';
 // import { Link } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux'

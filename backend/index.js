@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 const adminRoutes = require('./Routes/Admin');
 const userRoutes = require('./Routes/User');
 
-app.use('/api/v1/book',adminRoutes);
-app.use('/api/v1/book',userRoutes);
+app.use('/api/v1/auth',adminRoutes);
+app.use('/api/v1/user',userRoutes);
 
 
 //database
