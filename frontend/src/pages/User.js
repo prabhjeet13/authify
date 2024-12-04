@@ -38,7 +38,8 @@ const User = () => {
       setLoading(true);
       const deleteUser = async () => {
         try {
-          const response = await axios.post('http://localhost:4001/api/v1/user/delete', { userId, token });
+          // const response = await axios.post('http://localhost:4001/api/v1/user/delete', { userId, token });
+          const response = await axios.post('https://authify-h5y8.onrender.com/api/v1/user/delete', { userId, token });
           if (response.data.success) {
             navigate('/allusers');
           }

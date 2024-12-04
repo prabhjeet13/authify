@@ -49,8 +49,9 @@ const SignUp = () => {
     };
     
     // Make the POST request using axios
+    // .post('http://localhost:4001/api/v1/auth/signup', adminData)
     axios
-      .post('http://localhost:4001/api/v1/auth/signup', adminData)
+      .post('hhttps://authify-h5y8.onrender.com/api/v1/auth/signup', adminData)
       .then((response) => {
         setLoading(false); 
         // console.log(response.data);

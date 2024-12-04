@@ -36,7 +36,8 @@ const Form = () => {
           token,
           userId: userData._id,
         };
-        const response = await axios.post('http://localhost:4001/api/v1/user/edit', editDetails);
+        // const response = await axios.post('http://localhost:4001/api/v1/user/edit', editDetails);
+        const response = await axios.post('https://authify-h5y8.onrender.com/api/v1/user/edit', editDetails);
         if (response.data.success) {
           dispatch(setEditData(false));
           dispatch(setUserData(null));
@@ -56,7 +57,8 @@ const Form = () => {
           token,
         };
         console.log(newDetails);
-        const response = await axios.post('http://localhost:4001/api/v1/user/add', newDetails);
+        // const response = await axios.post('http://localhost:4001/api/v1/user/add', newDetails);
+        const response = await axios.post('https://authify-h5y8.onrender.com/api/v1/user/add', newDetails);
         if (response.data.success) {
           navigate(`/allusers`);
         }

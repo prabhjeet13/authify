@@ -7,9 +7,15 @@ const PORT = process.env.PORT || 4000;
 
 const path = require('path');
 const cors = require('cors');
+// app.use(
+//     cors({
+//         origin: "http://localhost:3000",
+//         credentials: true,
+//     })
+// )
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: "https://authify-lilac.vercel.app",
         credentials: true,
     })
 )
