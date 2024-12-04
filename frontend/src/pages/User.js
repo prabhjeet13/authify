@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { setEditData, setUserData } from '../slices/editSlice';
 
 const User = () => {
+  const { editData } = useSelector((state) => state.edit);
   const { userId } = useParams();
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
-
+  const {token} = useSelector((state) => state.profile);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     setLoading(true);
     const fetchUser = async () => {
@@ -24,6 +29,39 @@ const User = () => {
     fetchUser();
   }, [userId]);
 
+
+  const deletebtnclick = (userId) => {
+    let ans = prompt('are you sure you want to delete ? (yes/no)');
+    ans = ans.toLowerCase();
+    if(ans == "yes")
+    {
+      setLoading(true);
+      const deleteUser = async () => {
+        try {
+          const response = await axios.post('http://localhost:4001/api/v1/user/delete', { userId, token });
+          if (response.data.success) {
+            navigate('/allusers');
+          }
+        } catch (error) {
+          console.error('Error deletion user:', error);
+        }
+        setLoading(false);
+       }
+
+       deleteUser();
+      }
+  }   
+
+
+  const editHandler = () => {
+      dispatch(setEditData(true));
+      dispatch(setUserData(user));
+      localStorage.setItem('userData', JSON.stringify(user));
+      navigate('/edituser');
+  }
+
+
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -40,14 +78,14 @@ const User = () => {
           <p className="font-semibold">Salary: <span className="font-normal">₹{user.salary}</span></p>
           <p className="font-semibold">Role: <span className="font-normal">{user.role}</span></p>
         </div>
-        <div className="flex space-x-4 mt-6">
-          <button className="px-6 py-2 bg-green-600 text-white font-semibold rounded hover:bg-green-700 transition duration-300">
+        {token !== null && (<div className="flex space-x-4 mt-6">
+          <button onClick = {() => editHandler()}className="px-6 py-2 bg-green-600 text-white font-semibold rounded hover:bg-green-700 transition duration-300">
             Edit
           </button>
-          <button className="px-6 py-2 bg-red-600 text-white font-semibold rounded hover:bg-red-700 transition duration-300">
+          <button onClick = {() => deletebtnclick(userId)} className="px-6 py-2 bg-red-600 text-white font-semibold rounded hover:bg-red-700 transition duration-300">
             Delete
           </button>
-        </div>
+        </div>)}
       </div>
     </div>
   );

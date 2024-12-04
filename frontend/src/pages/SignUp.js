@@ -3,7 +3,7 @@ import imagebg from '../assets/imagebg.jpg';
 import imagesignup from '../assets/imagesignup.png';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Import axios
+import axios from 'axios'; 
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -49,19 +49,18 @@ const SignUp = () => {
     };
     
     // Make the POST request using axios
-    // axios
-    //   .post('http://localhost:4001/api/v1/auth/signup', userData)
-    //   .then((response) => {
-    //     setLoading(false); // Stop loading
-    //     // Handle successful response (e.g., redirect user or show success message)
-    //     console.log(response.data);
-    //     navigate('/signin'); // Redirect to login page (or any other route)
-    //   })
-    //   .catch((error) => {
-    //     setLoading(false); // Stop loading
-    //     setError('Error occurred while signing up. Please try again.');
-    //     console.error(error);
-    //   });
+    axios
+      .post('http://localhost:4001/api/v1/auth/signup', adminData)
+      .then((response) => {
+        setLoading(false); 
+        // console.log(response.data);
+        navigate('/signin'); 
+      })
+      .catch((error) => {
+        setLoading(false); 
+        setError('Error occurred while signing up. Please try again.');
+        console.error(error);
+      });
   };
 
   return (
@@ -70,7 +69,7 @@ const SignUp = () => {
     >
       <div className="w-[50%] flex flex-col gap-2">
         <p className="font-bold font-mono text-lg text-black uppercase">
-         Authify is here to manage your users!!!
+         Authify is here for admins to manage your users!!!
         </p>
         <form className="flex flex-col gap-5 font-mono font-semibold text-xl" onSubmit={submitHandler}>
           <div className="flex flex-col md:w-[85%]">

@@ -66,7 +66,7 @@ const SignIn = () => {
   return (
     <div className="mx-auto max-w-[1260px] md:flex md:flex-row md:mt-2 justify-evenly items-center md:gap-3 flex flex-col-reverse sm:gap-52 sm:mt-36 mt-10 bg-gradient-to-br from-blue-100 via-white to-purple-200 md:h-[100vh]">
       <div className="md:w-[40%] flex flex-col gap-2 w-11/12">
-        <p className="text-xl font-semibold font-mono uppercase">Welcome again to AUTHIFY !!!</p>
+        <p className="text-xl font-semibold font-mono uppercase">Welcome Again Admin to AUTHIFY !!!</p>
         <form className="flex flex-col gap-5 font-semibold" onSubmit={onSubmitHandler}>
           <div className="flex flex-col gap-1">
             <label htmlFor="email">Email</label>

@@ -108,18 +108,21 @@ exports.edit = async(req,res) => {
 
 exports.deleteUser = async(req,res) => {
     try {
+         
         const { userId } = req.body;
-         if(!userId)
+         
+        if(!userId)
          {   
              return res.status(404).json({
                  success : false,
                  message : 'enter your details',
               }); 
          }
-    
+         
+        //  console.log('hey1');
 
          // find first 
-        const existUser = await User.findOne({_id : userId});
+        const existUser = await User.findById({_id : userId});
     
         if(!existUser)
         {
@@ -129,10 +132,11 @@ exports.deleteUser = async(req,res) => {
              }); 
         }
 
-
+        console.log('hey');
 
          // delete the user
-         const deletedUser = await User.findByIdAndDelete({_id:userId});     
+         const deletedUser = await User.findByIdAndDelete({_id:userId});
+
          return res.status(200).json({
              success : true,
              message : 'delete successfull',

@@ -32,15 +32,6 @@ const Dashboard = () => {
                 </Link>
               </div>
             )}
-            {user.accountType === 'Admin' && (
-              <div className="flex justify-center mt-8">
-                <Link to="/myaddusers">
-                  <button className="bg-blue-600 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-200">
-                    My Add Users
-                  </button>
-                </Link>
-              </div>
-            )}
           </div>
         )
       }
