@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@reduxjs/toolkit": "^2.4.0"
+    "@reduxjs/toolkit": "^2.4.0",
+    "react-super-responsive-table": "^6.0.0"
   }
 }

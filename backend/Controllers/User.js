@@ -177,8 +177,7 @@ exports.getUserById = async(req,res) => {
          }
     
          // fetch the user
-         const  userdetails = await User.findById(
-            {_id:userId});     
+         const  userdetails = await User.findById(userId);     
          return res.status(200).json({
              success : true,
              message : 'fetch successfull',
@@ -189,7 +188,6 @@ exports.getUserById = async(req,res) => {
          return res.status(500).json({
              success: false,
              message : 'fetching at deleting side'
-     
          })
        }
 } 

@@ -20,7 +20,7 @@ const Navbar = () => {
     navigate('/');
   };
   return (
-    <div className='bg-gradient-to-r from-purple-300 via-pink-200 to-orange-300 md:h-14 md:py-10 mx-auto w-11/12 max-w-[1260px] md:flex md:flex-row md:gap-32 md:items-center md:justify-evenly border-b-2 border-blue-950 flex flex-col items-center mt-2 gap-2 h-40 shadow-md shadow-gray-400'>
+    <div className='bg-gradient-to-r from-purple-300 via-pink-200 to-orange-300 md:h-14 md:py-10 mx-auto md:flex md:flex-row md:gap-32 md:items-center md:justify-evenly border-b-2 border-blue-950 flex flex-col items-center mt-2 gap-2 h-40 shadow-md shadow-gray-400'>
       <Link to='/'>
         <p className='text-white bg-black shadow-md shadow-black p-2 duration-200 transition-all hover:scale-90 font-mono font-bold text-2xl py-1'>
           AUTHIFY
@@ -28,7 +28,7 @@ const Navbar = () => {
       </Link>
 
       <ul className='flex flex-row gap-4'>
-          <Link to='/about'>
+          <Link to='/allusers'>
             <li className='text-white bg-black shadow-md shadow-black px-5 py-2 duration-200 transition-all hover:scale-90 text-lg font-bold font-mono'>
               users
             </li>

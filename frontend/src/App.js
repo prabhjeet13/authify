@@ -20,7 +20,7 @@ function App() {
           <Route path='/dashboard' element = {<Dashboard/>}/>
           <Route path='/myaddusers' element = {<MyStoredUsers/>}/>
           <Route path='/allusers' element = {<AllUsers/>}/>
-          <Route path='/users/:userId' element = {<User/>}/>
+          <Route path='/users/user/:userId' element = {<User/>}/>
       </Routes>
     </div>
   );

@@ -10,9 +10,9 @@ router.post('/edit',auth,isAdmin,edit);
 
 router.post('/delete',auth,isAdmin,deleteUser);
 
-router.get('/getUser',auth,isAdmin,getUserById);
+router.post('/getuser',getUserById);
 
-router.get('/getallusers',auth,isAdmin,getAllusers);
+router.get('/getallusers',getAllusers);
 
 
 
