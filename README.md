@@ -14,3 +14,5 @@ Edit existing user details.
 Delete users.
 Only logged-in admins can perform these operations.
 This project demonstrates the use of authentication, state management, and seamless integration between frontend and backend.
+
+Assumption : Admin can be a HR of company or Owner of company will add their employees (users) and manage their data efficiently.
