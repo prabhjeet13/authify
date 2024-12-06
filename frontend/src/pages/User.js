@@ -16,7 +16,8 @@ const User = () => {
     setLoading(true);
     const fetchUser = async () => {
       try {
-        const response = await axios.post('http://localhost:4001/api/v1/user/getuser', { userId });
+        // const response = await axios.post('http://localhost:4001/api/v1/user/getuser', { userId });
+        const response = await axios.post('https://authify-h5y8.onrender.com/api/v1/user/getuser', { userId });
         if (response.data.success) {
           setUser(response.data.userdetails);
           console.log(response.data.userdetails);

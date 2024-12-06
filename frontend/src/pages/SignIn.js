@@ -4,7 +4,7 @@ import imagesignup from '../assets/imagesignup.png';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setToken, setUser } from '../slices/profileSlice';
 
 const SignIn = () => {
@@ -63,6 +63,13 @@ const SignIn = () => {
       setLoading(false); // Set loading to false when the request is completed
     }
   };
+
+  const { token } = useSelector((state) => state.profile);
+
+  if(token)
+  {
+     return ( <div></div> );
+  }
 
   return (
     <div className="mx-auto max-w-[1260px] md:flex md:flex-row md:mt-2 justify-evenly items-center md:gap-3 flex flex-col-reverse sm:gap-52 sm:mt-36 mt-10 bg-gradient-to-br from-blue-100 via-white to-purple-200 md:h-[100vh]">
